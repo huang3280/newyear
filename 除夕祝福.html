@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乙巳年新春祝福</title>
+    <style>
+        :root {
+            --red: #c62b29;  /* 加深红色显贵气 */
+            --gold: #fff0b5; /* 暖金色调 */
+            --snake: #2a5a3c; /* 新增蛇纹绿 */
+        }
+        body {
+            background: linear-gradient(var(--red), #a82522),
+                        url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQIW2NkQAKrVq36zwjjgzhhYWGMYAEYB8RmROaABADeOQ8CXl/xfgAAAABJRU5ErkJggg==');
+            font-family: "Microsoft Yahei", sans-serif;
+        }
+
+        /* 灵蛇图腾动画 */
+        .snake-pattern {
+            position: absolute;
+            width: 80px;
+            opacity: 0.2;
+            animation: slither 20s linear infinite;
+        }
+
+        /* 祝福语动画 */
+        .blessing {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 1s forwards;
+            color: var(--gold);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        @keyframes slither {
+            0% { transform: translateX(-100%) rotate(0deg); }
+            100% { transform: translateX(100vw) rotate(360deg); }
+        }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- 灵蛇背景图腾 -->
+    <img src="data:image/svg+xml,%3Csvg...蛇形SVG路径..." 
+         class="snake-pattern" style="top:20%">
+    <img src="data:image/svg+xml,%3Csvg...反向蛇形路径..." 
+         class="snake-pattern" style="top:60%">
+
+    <div class="container" style="text-align: center; padding: 20px; margin-top: 20vh">
+        <h1 class="blessing" style="animation-delay:0.3s">🐍 乙巳年吉祥 🐍</h1>
+        <p class="blessing" style="animation-delay:0.6s">亲爱的[刘思婷]</p>
+        <p class="blessing" style="animation-delay:0.9s">灵蛇盘福至，春风送暖来</p>
+        <p class="blessing" style="animation-delay:1.2s">感恩相遇的恰到好处</p>
+        <p class="blessing" style="animation-delay:1.5s">愿新岁：</p>
+        <p class="blessing" style="animation-delay:1.8s">蜕故孳新 顺遂无虞</p>
+        <p class="blessing" style="animation-delay:2.1s">柔韧慧心 得偿所愿</p>
+        <p class="blessing" style="animation-delay:2.4s">🎋𝟚𝟘𝟚𝟝 福暖四季🧧</p>
+    </div>
+
+    <!-- 动态签文特效 -->
+    <div id="fortune" style="position:fixed; bottom:10%; width:100%; text-align:center">
+        <div style="display:inline-block; padding:10px; background:rgba(0,0,0,0.3); border-radius:8px">
+            <span style="color:var(--snake); font-size:1.2em">⇲轻触抽取新年签⇲</span>
+        </div>
+    </div>
+
+    <script>
+        // 蛇年专属签文
+        const fortunes = [
+            "🐉龙蛇之变｜君子适时而进",
+            "🎐灵慧在芯｜所谋皆有所成",
+            "🌱蛰伏待时｜新春破茧新生",
+            "🌀柔能克刚｜化解诸般困阻"
+        ];
+
+        // 交互抽签
+        document.addEventListener('click', function() {
+            const fortuneBox = document.getElementById('fortune');
+            fortuneBox.innerHTML = `<div class="blessing" style="animation:none;opacity:1">
+                <div style="font-size:1.5em">${fortunes[Math.floor(Math.random()*4)]}</div>
+                <div style="margin-top:10px">🎐心诚则灵🎐</div>
+            </div>`;
+        });
+    </script>
+</body>
+</html>
